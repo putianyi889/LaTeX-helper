@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\input{mathhelper}
+
+\title{Preambles}
+\author{Tianyi Pu}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Commands}
+\begin{itemize}
+    \item[\texttt{\textbackslash abs[1]}] $\abs{\#1}$, the absolute value.
+    \item[\texttt{\textbackslash Atop[2]}] $\Atop{\#1}{\#2}$, a safe wrapping of \texttt{\textbackslash atop}, the line-less fraction.
+    \item[\texttt{\textbackslash Beta}] $\Beta$, the big $\beta$.
+    \item[\texttt{\textbackslash d}] $\d$, the differential operator.
+    \item[\texttt{\textbackslash f[1]}] $\f{\#1}$, a lazy wrapping of \texttt{\textbackslash left(\#1\textbackslash right)}.
+    \item[\texttt{\textbackslash half[1][1]}] $\half[\#1]$, a lazy wrapping of halves.
+    \item[\texttt{\textbackslash hypergeometric[5]}] $\hypergeometric{\#1}{\#2}{\#3}{\#4}{\#5}$, the hypergeometric function with arguments.
+    \item[\texttt{\textbackslash Li}] $\Li$, the polylogarithm function.
+    \item[\texttt{\textbackslash pFq[2]}] $\pFq{\#1}{\#2}$, the hypergeometric function.
+    \item[\texttt{\textbackslash sign}] $\sign$, the sign function.
+\end{itemize}
+
+
+\end{document}

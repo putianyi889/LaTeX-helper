@@ -1,0 +1,27 @@
+\usepackage{mathtools}
+\usepackage{amsmath}
+
+\newcommand{\Beta}{\mathrm{B}} % Upper beta
+\DeclareMathOperator{\sign}{sgn} % sign function
+\DeclareMathOperator{\Li}{Li} % polylogarithm function
+\AtBeginDocument{\renewcommand{\d}{\:\mathrm{d}}} % differential symbol
+
+% principal value integral
+% credit: https://tex.stackexchange.com/a/760/199226
+\def\Xint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\Xint=}
+\def\dashint{\Xint-}
+
+\newcommand{\pFq}[2]{{}_{#1}F_{#2}}
+\newcommand{\half}[1][1]{\frac{#1}{2}}
+\newcommand{\f}[1]{\!\left({#1}\right)\!}
+\newcommand{\abs}[1]{\left\lvert{#1}\right\rvert}
+\newcommand{\Atop}[2]{\genfrac{}{}{0pt}{}{#1}{#2}}
+\newcommand{\hypergeometric}[5]{\pFq{#1}{#2}\left(\Atop{#3}{#4};{#5}\right)}
