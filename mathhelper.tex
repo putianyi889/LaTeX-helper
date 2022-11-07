@@ -1,6 +1,7 @@
 \usepackage{mathtools}
 \usepackage{amsmath}
 \usepackage{tikzpagenodes}
+\usepackage[pscoord]{eso-pic}
 
 \newcommand{\Beta}{\mathrm{B}} % Upper beta
 \DeclareMathOperator{\sign}{sgn} % sign function
@@ -42,23 +43,12 @@
     \end{subequations}
 }
 
-% add an extra tag to the line
-% credit: https://tex.stackexchange.com/a/574795/199226
-\newcommand{\rtag}[1]{
-    \begin{tikzpicture}[baseline=(tmp.base),remember picture]
-        \node[inner sep=0pt](tmp){\vphantom{1}};
-        \begin{scope}[overlay]
-            \path (current page text area.east|-tmp.base)
-                node[anchor=base east,inner sep=0pt,outer sep=0pt]{#1};
-        \end{scope}
-    \end{tikzpicture}
+% add an extra tag to the left of an equation
+% credit: https://tex.stackexchange.com/a/664316/199226
+\makeatletter
+\def\ltag#1{%
+\stepcounter{equation}%
+\tag*{}%
+\def\df@tag{(\theequation)\llap{\rlap{#1}\hspace{\textwidth}}}%
 }
-\newcommand{\ltag}[1]{
-    \begin{tikzpicture}[baseline=(tmp.base),remember picture]
-        \node[inner sep=0pt](tmp){\vphantom{1}};
-        \begin{scope}[overlay]
-            \path (current page text area.west|-tmp.base)
-                node[anchor=base west,inner sep=0pt,outer sep=0pt]{#1};
-        \end{scope}
-    \end{tikzpicture}
-}
+\makeatother
