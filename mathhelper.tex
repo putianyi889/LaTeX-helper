@@ -5,6 +5,7 @@
 \newcommand{\Beta}{\mathrm{B}} % Upper beta
 \DeclareMathOperator{\sign}{sgn} % sign function
 \DeclareMathOperator{\diag}{diag} % diagonal matrix
+\DeclareMathOperator{\spanspace}{span}
 \DeclareMathOperator{\Li}{Li} % polylogarithm function
 \DeclareMathOperator{\erfc}{erfc} % complementary error function
 \DeclareMathOperator{\sech}{sech} % hyperbolic secant
@@ -22,6 +23,8 @@
 \newcommand{\abs}[1]{\left\lvert{#1}\right\rvert} % absolute value
 \newcommand{\floor}[1]{\left\lfloor{#1}\right\rfloor} % rounding down
 \newcommand{\ceil}[1]{\left\lceil{#1}\right\rceil} % rounding up
+\newcommand{\tfloor}[1]{\lfloor{#1}\rfloor} % rounding down with tiny delimiter
+\newcommand{\tceil}[1]{\lceil{#1}\rceil} % rounding up with tiny delimiter
 \newcommand{\Atop}[2]{\genfrac{}{}{0pt}{}{#1}{#2}} % safe wrapping of \atop
 \newcommand{\hypergeometric}[5]{\pFq{#1}{#2}\left(\Atop{#3}{#4};{#5}\right)} % hypergeometric function
 \newcommand{\lazysplit}[1]{\[\begin{split}#1\end{split}\]}
