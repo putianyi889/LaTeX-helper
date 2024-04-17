@@ -4,3 +4,17 @@
     \color{gray}
     \usepackage[font={color=gray}]{caption}
 }
+
+\usepackage{datetime2}
+\usepackage{xstring}
+% if the time is not between #1:00 and #2:00 UTC then use nightmode
+\newcommand{\smartnightmode}[2]{
+    \StrBefore{\DTMcurrenttime}{:}[\hour]
+    \ifnum\hour<#2
+        \ifnum\hour<#1
+            \nightmode
+        \fi
+    \else
+        \nightmode
+    \fi
+}
