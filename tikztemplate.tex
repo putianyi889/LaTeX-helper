@@ -1,3 +1,4 @@
+\usepackage{tikz}
 \usetikzlibrary{calc}
 
 \newcommand{\drawquasimatrix}[2]{
@@ -31,3 +32,40 @@
     }
     \node[anchor=mid] (A) at (0.5,0.5) {$\vdots$};
 }
+
+\newcommand{\drawdensematrix}[2]{
+    \foreach \m in {1,...,#1} {
+        \foreach \n in {1,...,#2} {
+            \draw (\n,-\m) circle (0.1);
+        }
+    }
+}
+
+% height, width, lower band, upper band
+\newcommand{\drawbandedmatrix}[4]{%
+    \foreach \m in {1,...,#1} {%
+        \foreach \n [evaluate={\n+\m} as \neval] in {-#3,...,#4} {%
+            \pgfmathparse{(\neval < 1 ? 0 :
+                      (\neval > #2 ? 0 : 1))}
+            \ifnum\pgfmathresult=1
+                \draw (\neval,-\m) circle (0.1);
+            \fi
+        }
+    }
+}
+
+\newcommand{\drawmatrixbox}[2]{
+    \draw (0.5,-0.5) rectangle (#2+0.5, -#1-0.5);
+}
+
+% credit: https://tex.stackexchange.com/a/354243/199226
+% \drawloop[options]{node}{start angle}{end angle} ... ;
+\usetikzlibrary{calc}
+\tikzset{stretch/.initial=1}
+\newcommand\drawloop[4][]%
+   {\draw[shorten <=0pt, shorten >=0pt,#1]
+      ($(#2)!\pgfkeysvalueof{/tikz/stretch}!(#2.#3)$)
+      let \p1=($(#2.center)!\pgfkeysvalueof{/tikz/stretch}!(#2.north)-(#2)$),
+          \n1= {veclen(\x1,\y1)*sin(0.5*(#4-#3))/sin(0.5*(180-#4+#3))}
+      in arc [start angle={#3-90}, end angle={#4+90}, radius=\n1]%
+   }

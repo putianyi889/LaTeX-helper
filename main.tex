@@ -6,6 +6,7 @@
 \input{theorems}
 \input{unicode}
 \input{skin}
+\input{tikztemplate}
 
 \title{Preambles}
 \author{Tianyi Pu}
@@ -35,10 +36,12 @@
     \item[\texttt{\textbackslash floor[1]}] $\floor{\#1}$, rounding down.
     \item[\texttt{\textbackslash half[1][1]}] $\half[\#1]$, a lazy wrapping of halves.
     \item[\texttt{\textbackslash hypergeometric[5]}] $\hypergeometric{\#1}{\#2}{\#3}{\#4}{\#5}$, the hypergeometric function with arguments.
+    \item[\texttt{\textbackslash hypergeometricOlver[5]}] $\hypergeometricOlver{\#1}{\#2}{\#3}{\#4}{\#5}$, the Olver's hypergeometric function with arguments.
     \item[\texttt{\textbackslash identity}] $\identity$, the identity operator.
     \item[\texttt{\textbackslash innerproduct[1]}] $\innerproduct{\#1}$, the inner product.
     \item[\texttt{\textbackslash Li}] $\Li$, the polylogarithm function.
     \item[\texttt{\textbackslash pFq[2]}] $\pFq{\#1}{\#2}$, the hypergeometric function.
+    \item[\texttt{\textbackslash pFqOlver[2]}] $\pFqOlver{\#1}{\#2}$, the hypergeometric function.
     \item[\texttt{\textbackslash sech}] $\sech$, the hyperbolic secant.
     \item[\texttt{\textbackslash sign}] $\sign$, the sign function.
     \item[\texttt{\textbackslash spanspace}] $\spanspace$, the span space.
@@ -73,7 +76,7 @@
 \end{example}
 
 \section{Unicode characters}
-⬯✗□
+⬯✗□×
 
 \nocite{*}
 \bibliographystyle{plain}
